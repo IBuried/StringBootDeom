@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssc.demo.jdbc.UserInfoMapper">
+    <resultMap id="BaseResultMap" type="com.ssc.demo.db.UserInfo">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="id" jdbcType="BIGINT" property="id"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
+        <result column="head_img" jdbcType="VARCHAR" property="headImg"/>
+        <result column="phone_num" jdbcType="VARCHAR" property="phoneNum"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="gender" jdbcType="INTEGER" property="gender"/>
+        <result column="union_id" jdbcType="VARCHAR" property="unionId"/>
+        <result column="public_open_id" jdbcType="VARCHAR" property="publicOpenId"/>
+        <result column="open_id" jdbcType="VARCHAR" property="openId"/>
+        <result column="parent_id" jdbcType="BIGINT" property="parentId"/>
+    </resultMap>
+
+    <select id="selectByOpenId" resultMap="BaseResultMap">
+        select id,
+               nick_name,
+               head_img,
+               phone_num,
+               union_id,
+               create_time,
+               status
+        from user_info
+        where open_id = #{openId}
+          and status != 3
+        limit 1
+    </select>
+
+    <select id="selectByPhoneNum" resultMap="BaseResultMap">
+        select id,
+        nick_name,
+        head_img,
+        phone_num,
+        union_id,
+        create_time,
+        status
+        from user_info
+        where status != 3
+        <if test="phoneNum != null and phoneNum != ''">
+            and phone_num like concat('%', #{phoneNum}, '%')
+        </if>
+    </select>
+
+</mapper>
