@@ -17,9 +17,9 @@ import java.util.Optional;
 
 /**
  * 类说明 （必填）
- * @author liaoyz
+ * @author Administrator
  * @date 2022/04/02 18:12
- * @change 2022/04/02 18:12 liaoyz@v1.0 创建 
+ * @change 2022/04/02 18:12 Administrator@v1.0 创建 
  */
 @Component
 public class AddMyBeanFactory implements BeanFactoryPostProcessor {

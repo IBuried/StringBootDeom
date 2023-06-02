@@ -9,9 +9,9 @@ import java.lang.annotation.Target;
 
 /**
  * 类说明 （必填）
- * @author liaoyz
+ * @author Administrator
  * @date 2022/04/02 17:58
- * @change 2022/04/02 17:58 liaoyz@v1.0 创建 
+ * @change 2022/04/02 17:58 Administrator@v1.0 创建 
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD,ElementType.TYPE})

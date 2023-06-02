@@ -2,9 +2,9 @@ package com.ssc.demo.common.swagger;
 
 /**
  * 类说明 （必填）
- * @author liaoyz
+ * @author Administrator
  * @date 2022/04/02 17:59
- * @change 2022/04/02 17:59 liaoyz@v1.0 创建 
+ * @change 2022/04/02 17:59 Administrator@v1.0 创建 
  */
 public enum ApiVersionEnum {
     /**
