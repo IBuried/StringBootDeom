@@ -19,6 +19,11 @@
         <result column="open_id" jdbcType="VARCHAR" property="openId"/>
         <result column="parent_id" jdbcType="BIGINT" property="parentId"/>
     </resultMap>
+    <update id="updateOpenIdById">
+        UPDATE user_info
+        set open_id=#{openId}
+        where id = #{id}
+    </update>
 
     <select id="selectByOpenId" resultMap="BaseResultMap">
         select id,
@@ -47,6 +52,20 @@
         <if test="phoneNum != null and phoneNum != ''">
             and phone_num like concat('%', #{phoneNum}, '%')
         </if>
+    </select>
+
+    <select id="selectByUnionId" resultMap="BaseResultMap">
+        select id,
+               nick_name,
+               head_img,
+               phone_num,
+               union_id,
+               create_time,
+               status
+        from user_info
+        where union_id = #{unionId}
+          and status != 3
+        limit 1
     </select>
 
 </mapper>

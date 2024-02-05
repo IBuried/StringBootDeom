@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssc.demo.jdbc.AdminUserMapper">
+    <resultMap id="BaseResultMap" type="com.ssc.demo.db.AdminUser">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="account" jdbcType="VARCHAR" property="account"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl"/>
+        <result column="phone_num" jdbcType="VARCHAR" property="phoneNum"/>
+        <result column="enable" jdbcType="INTEGER" property="enable"/>
+    </resultMap>
+    <select id="selectByUsername" resultMap="BaseResultMap">
+        select id,
+               account,
+               password,
+               name,
+               create_time,
+               modify_time,
+               status,
+               avatar_url,
+               phone_num,
+               enable
+        from admin_user
+        where status = 1
+          and binary account = #{account}
+
+    </select>
+</mapper>

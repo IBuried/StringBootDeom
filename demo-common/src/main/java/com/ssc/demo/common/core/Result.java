@@ -11,12 +11,12 @@ import com.ssc.demo.common.enums.ResultCode;
 
 public class Result<T> {
     private int code;
-    private String message;
+    private String msg;
     private T data;
 
     public Result(int code, String message, T data) {
         this.code = code;
-        this.message = message;
+        this.msg = message;
         this.data = data;
     }
 
@@ -25,7 +25,7 @@ public class Result<T> {
 
     public Result(ErrorEnum errorEnum, T data) {
         this.code = errorEnum.getErrorCode();
-        this.message = errorEnum.getErrorMsg();
+        this.msg = errorEnum.getErrorMsg();
         this.data = data;
     }
 
@@ -43,12 +43,12 @@ public class Result<T> {
         return this;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
-    public Result<T> setMessage(String message) {
-        this.message = message;
+    public Result<T> setMsg(String message) {
+        this.msg = message;
         return this;
     }
 

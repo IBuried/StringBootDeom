@@ -28,5 +28,27 @@ public interface UserInfoMapper extends Mapper<UserInfo> {
     List<UserInfo> selectByPhoneNum(@Param("phoneNum") String phoneNum);
 
 
+    /***
+     * 根据unionId查询用户信息
+     * @param unionId
+     * @return {@link UserInfo}
+     * @author: LiuDan
+     * @date: 2022/08/04  18:05
+     * @version: v1.0
+     */
+    UserInfo selectByUnionId(@Param("unionId") String unionId);
+
+    /***
+     * 根据Id修改用户openId
+     * @param openId
+     * @param id
+     * @return {@link int}
+     * @author: LiuDan
+     * @date: 2022/08/04  18:20
+     * @version: v1.0
+     */
+    int updateOpenIdById(@Param("openId") String openId, @Param("id") Long id);
+
+
 
 }

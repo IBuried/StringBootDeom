@@ -12,11 +12,7 @@
     <artifactId>demo-domain</artifactId>
 
     <dependencies>
-        <!--        <dependency>-->
-        <!--            <groupId>io.swagger</groupId>-->
-        <!--            <artifactId>swagger-annotations</artifactId>-->
-        <!--            <version>1.5.13</version>-->
-        <!--        </dependency>-->
+<!--        需要引用common中的类-->
         <dependency>
             <groupId>com.ssc.demo</groupId>
             <artifactId>demo-common</artifactId>

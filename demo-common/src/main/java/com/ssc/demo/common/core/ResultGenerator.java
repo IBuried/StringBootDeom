@@ -11,6 +11,8 @@ import com.ssc.demo.common.enums.ResultCode;
 public class ResultGenerator {
     private static final String DEFAULT_SUCCESS_MESSAGE = "SUCCESS";
 
+    private static final String API_SUCCESS_MESSAGE = "接口调用成功";
+
     /**
      * 返回成功状态信息（用户增删改返回成功状态信息）
      *
@@ -19,7 +21,7 @@ public class ResultGenerator {
     public static <T> Result<T> genSuccessMessage() {
         return new Result<T>()
                 .setCode(ResultCode.SUCCESS_CUD)
-                .setMessage(DEFAULT_SUCCESS_MESSAGE);
+                .setMsg(DEFAULT_SUCCESS_MESSAGE);
     }
 
     /**
@@ -30,7 +32,14 @@ public class ResultGenerator {
     public static <T> Result<T> genSuccessMessage(T data) {
         return new Result<T>()
                 .setCode(ResultCode.SUCCESS_CUD)
-                .setMessage(DEFAULT_SUCCESS_MESSAGE)
+                .setMsg(DEFAULT_SUCCESS_MESSAGE)
+                .setData(data);
+    }
+
+    public static <T> Result<T> genCallSuccessResult(T data) {
+        return new Result<T>()
+                .setCode(ResultCode.CALL_SUCCESS)
+                .setMsg(API_SUCCESS_MESSAGE)
                 .setData(data);
     }
 
@@ -38,20 +47,20 @@ public class ResultGenerator {
     public static <T> Result<T> genSuccessResult() {
         return new Result<T>()
                 .setCode(ResultCode.SUCCESS)
-                .setMessage(DEFAULT_SUCCESS_MESSAGE);
+                .setMsg(DEFAULT_SUCCESS_MESSAGE);
     }
 
     public static <T> Result<T> genSuccessResult(T data) {
         return new Result<T>()
                 .setCode(ResultCode.SUCCESS)
-                .setMessage(DEFAULT_SUCCESS_MESSAGE)
+                .setMsg(DEFAULT_SUCCESS_MESSAGE)
                 .setData(data);
     }
 
     public static <T> Result<T> genFailResult(String message) {
         return new Result<T>()
                 .setCode(ResultCode.FAIL)
-                .setMessage(message);
+                .setMsg(message);
     }
 
 
@@ -63,7 +72,7 @@ public class ResultGenerator {
     public static <T> Result<T> genFailResult(int code, String message) {
         return new Result<T>()
                 .setCode(code)
-                .setMessage(message);
+                .setMsg(message);
     }
 
     /**
@@ -73,7 +82,7 @@ public class ResultGenerator {
     public static <T> Result<T> genFailResult(ErrorEnum errorEnum) {
         return new Result<T>()
                 .setCode(errorEnum.getErrorCode())
-                .setMessage(errorEnum.getErrorMsg());
+                .setMsg(errorEnum.getErrorMsg());
     }
 
     /**
@@ -85,7 +94,7 @@ public class ResultGenerator {
     public static <T> Result<T> genFailResult(int code, String message, T data) {
         return new Result<T>()
                 .setCode(code)
-                .setMessage(message)
+                .setMsg(message)
                 .setData(data);
     }
 

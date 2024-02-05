@@ -4,6 +4,7 @@ package com.ssc.demo.common.enums;
  * 响应码枚举，参考HTTP状态码的语义
  */
 public enum ResultCode {
+    CALL_SUCCESS(2),//调用成功
     SUCCESS(200),//成功
     SUCCESS_CUD(201),//成功完成增删改，返回状态码
     FAIL(400),//失败

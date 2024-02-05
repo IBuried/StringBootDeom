@@ -38,6 +38,22 @@ CREATE TABLE `user_info`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
+
+DROP TABLE IF EXISTS `admin_user`;
+CREATE TABLE `admin_user`  (
+                             `id` int NOT NULL AUTO_INCREMENT,
+                             `account` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '账号',
+                             `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '密码 md5',
+                             `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '名称',
+                             `create_time` datetime NOT NULL COMMENT '创建时间',
+                             `modify_time` datetime NULL DEFAULT NULL COMMENT '修改时间',
+                             `status` int NOT NULL DEFAULT 1 COMMENT '状态（0：已删除，1：正常）',
+                             `avatar_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '头像',
+                             `phone_num` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '手机号',
+                             `enable` int NULL DEFAULT NULL COMMENT '是否启用：1正常 0停用',
+                             PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '管理后台账号' ROW_FORMAT = Dynamic;
+
 -- ----------------------------
 -- Records of user_info
 -- ----------------------------

@@ -39,20 +39,20 @@ public class GlobalExceptionHandler {
         logger.error("全局异常捕获", e);
         return new Result<>()
                 .setCode(ResultCode.FAIL)
-                .setMessage(ErrorEnum.E_00000.getErrorMsg());
+                .setMsg(ErrorEnum.E_00000.getErrorMsg());
 
     }
 
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public Result<Object> missingServletRequestParameterException(MissingServletRequestParameterException e) throws Exception {
         //缺少字段
-        return new Result<>().setCode(ResultCode.FAIL).setMessage(ErrorEnum.E_90003.getErrorMsg() + " " + e.getParameterName());
+        return new Result<>().setCode(ResultCode.FAIL).setMsg(ErrorEnum.E_90003.getErrorMsg() + " " + e.getParameterName());
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public Result<Object> methodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e) throws Exception {
         // 参数格式异常
-        return new Result<>().setCode(ResultCode.FAIL).setMessage(ErrorEnum.E_90002.getErrorMsg());
+        return new Result<>().setCode(ResultCode.FAIL).setMsg(ErrorEnum.E_90002.getErrorMsg());
     }
 
     /**

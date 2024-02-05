@@ -1,8 +1,10 @@
 package com.ssc.demo.service;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.ssc.demo.common.core.Service;
 import com.ssc.demo.db.UserInfo;
+import me.chanjar.weixin.common.error.WxErrorException;
 
 import java.util.List;
 
@@ -10,6 +12,9 @@ import java.util.List;
  * Created by Administrator on 2023/06/01.
  */
 public interface UserInfoService extends Service<UserInfo> {
+
+
+    JSONObject appletLogin(JSONObject data) throws WxErrorException;
 
 
     /**
